@@ -46,16 +46,19 @@ namespace RareEnemyNotification
         }
         public override void OnSpawn(NPC npc, IEntitySource source)
         {
-            if (Main.netMode == NetmodeID.SinglePlayer)
+            if (npc.rarity > 0)
             {
-                NotifEffect(npc.type);
-            }
-            else if (Main.netMode == NetmodeID.Server)
-            {
-                ModPacket packet = ModContent.GetInstance<RareEnemyNotification>().GetPacket();
-                packet.Write((byte)MessageType.FoundRareEnemyToClients);
-                packet.Write(npc.TypeName);
-                packet.Send();
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+                    NotifEffect(npc.type);
+                }
+                else if (Main.netMode == NetmodeID.Server)
+                {
+                    ModPacket packet = ModContent.GetInstance<RareEnemyNotification>().GetPacket();
+                    packet.Write((byte)MessageType.FoundRareEnemyToClients);
+                    packet.Write(npc.TypeName);
+                    packet.Send();
+                }
             }
         }
 	}
