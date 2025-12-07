@@ -1,0 +1,5 @@
+PopupText: <name> Spawned!
+ChatText: A <name> has spawned in the world!
+Configs.ConfigOptions.DisplayName: Config Options
+TextColor: Text Color
+TextColorTip: ""

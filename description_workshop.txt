@@ -1,0 +1,5 @@
+Mod is a simple mod, that gives off a chat message, pop-up message and a sound effect when a Rare enemy spawns. Works on multiplayer. Made after suggestion on my Rare Drop Notification Mod by Poodik.
+
+Currently only sound effect is vanilla Terraria Bell sound effect, more will be added with suggestions.
+
+You can support me through https://www.patreon.com/pearlying!

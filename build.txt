@@ -1,0 +1,4 @@
+displayName = Rare Enemy Notification
+author = Pearlie
+version = 1.0
+homepage = https://www.patreon.com/pearlying
