@@ -3,4 +3,4 @@ Mod is a simple mod, that gives off a chat message, pop-up message and a sound e
 Currently only sound effect is vanilla Terraria Bell sound effect, more will be added with suggestions.
 
 Open to all suggestions for improvement of the mod; What should be included in config, what other sound effects can be added, what more can be added etc.
-You can support me through https://www.patreon.com/pearlying!
+You can support me through https://www.patreon.com/pearlying
