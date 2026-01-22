@@ -20,7 +20,6 @@ namespace RareEnemyNotification
     {
         FoundRareEnemyToClients
     }
-
 	public class RareEnemyNotification : Mod
 	{
         public override void HandlePacket(BinaryReader reader, int whoAmI)
@@ -39,10 +38,13 @@ namespace RareEnemyNotification
 	{
         public static void NotifEffect(int enemyType)
         {
-            NPC npc = ContentSamples.NpcsByNetId[enemyType];
-            Main.NewText(Language.GetTextValue("Mods.RareEnemyNotification.ChatText").Replace("<name>",npc.TypeName));
-            CombatText.NewText(Main.LocalPlayer.getRect(), ModContent.GetInstance<ConfigOptions>().TextColor, Language.GetTextValue("Mods.RareEnemyNotification.PopupText").Replace("<name>", npc.TypeName), true);
-            SoundEngine.PlaySound(SoundID.Item35 with { PitchRange = (-0.9f, -0.2f) });
+            if (ModContent.GetInstance<ConfigOptions>().LifeformAnalyzer == false || (ModContent.GetInstance<ConfigOptions>().LifeformAnalyzer && Main.LocalPlayer.accCritterGuide)) //WHY IS LIFEFORM ANALYZER CRITTERGUIDE IN CODE???????????????????????
+            {
+                NPC npc = ContentSamples.NpcsByNetId[enemyType];
+                Main.NewText(Language.GetTextValue("Mods.RareEnemyNotification.ChatText").Replace("<name>", npc.TypeName));
+                CombatText.NewText(Main.LocalPlayer.getRect(), ModContent.GetInstance<ConfigOptions>().TextColor, Language.GetTextValue("Mods.RareEnemyNotification.PopupText").Replace("<name>", npc.TypeName), true);
+                SoundEngine.PlaySound(SoundID.Item35 with { PitchRange = (-0.9f, -0.2f) });
+            }
         }
         public override void OnSpawn(NPC npc, IEntitySource source)
         {
@@ -56,7 +58,7 @@ namespace RareEnemyNotification
                 {
                     ModPacket packet = ModContent.GetInstance<RareEnemyNotification>().GetPacket();
                     packet.Write((byte)MessageType.FoundRareEnemyToClients);
-                    packet.Write(npc.TypeName);
+                    packet.Write(npc.netID);
                     packet.Send();
                 }
             }

@@ -3,3 +3,4 @@ ChatText: A <name> has spawned in the world!
 Configs.ConfigOptions.DisplayName: Config Options
 TextColor: Text Color
 TextColorTip: ""
+Lifeform: Only have this mod active if you have a Lifeform Analyzer & Its upgrades active.

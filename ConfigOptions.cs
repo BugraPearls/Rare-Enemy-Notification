@@ -19,5 +19,10 @@ namespace RareEnemyNotification
         [TooltipKey("$Mods.RareEnemyNotification.TextColorTip")]
         [DefaultValue(typeof(Color), "84, 252, 252, 255"), ColorNoAlpha]
         public Color TextColor { get; set; }
+
+        [LabelKey("$Mods.RareEnemyNotification.Lifeform")]
+        [TooltipKey("$Mods.RareEnemyNotification.Lifeform")]
+        [DefaultValue(false)]
+        public bool LifeformAnalyzer { get; set; }
     }
 }
